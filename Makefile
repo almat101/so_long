@@ -6,15 +6,15 @@
 #    By: amatta <amatta@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 16:00:41 by amatta            #+#    #+#              #
-#    Updated: 2023/07/10 11:54:36 by amatta           ###   ########.fr        #
+#    Updated: 2023/07/12 12:27:41 by amatta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 CC = gcc
-
-FLAGS = -Wall -Werror -Wextra
+#flags deleted for testing
+FLAGS =
 
 SRCS = main.c
 
