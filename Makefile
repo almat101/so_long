@@ -6,7 +6,7 @@
 #    By: amatta <amatta@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 16:00:41 by amatta            #+#    #+#              #
-#    Updated: 2023/07/12 12:27:41 by amatta           ###   ########.fr        #
+#    Updated: 2023/07/18 13:28:03 by amatta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 #flags deleted for testing
 FLAGS =
 
-SRCS = main.c
+SRCS = main.c read_map.c utils.c check_map.c errors.c render_map.c
 
 LIBFT = ./libft/libft.a
 
