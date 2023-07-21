@@ -6,7 +6,7 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 12:32:04 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/18 16:14:39 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/21 17:17:54 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,5 @@ char	**read_map(char *argv,t_game *game)
 	return (game->map);
 }
 
-void	init_struct(t_game *game)
-{
-	game->map_width = map_width(game);
-	game->map_height = map_height(game);
-	game->collect_count = 0;
-	game->exit_count = 0;
-	game->img_pxl = 128;
-}
+
+

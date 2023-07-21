@@ -16,9 +16,11 @@ typedef	struct	s_game {
 	int		player_count;
 	int		collect_count;
 	int		exit_count;
+	int		count_collect;
 	int		img_pxl;
 	int		p_x;
 	int		p_y;
+	int		p_moves;
 	void	*mlx;
 	void	*win;
 	char	**map;
@@ -32,6 +34,8 @@ typedef	struct	s_game {
 
 char	**read_map(char *argv, t_game *game);
 void	render_map(t_game *game);
+void	draw_map(t_game *game);
+void	draw_map2(t_game *game, int y, int x);
 void	check_map(t_game *game);
 void	check_walls(t_game *game);
 void	check_items(t_game *game);
@@ -40,5 +44,15 @@ void	init_struct(t_game *game);
 int		map_height(t_game *game);
 int		map_width(t_game *game);
 char	*error(char *msg);
-
+void	ft_free_map(t_game *game);
+int		handle_key(int keycode, t_game *game);
+int		close_win(t_game *game);
+void	get_player(t_game *game);
+void	player_up(t_game *game);
+void	player_down(t_game *game);
+void	player_right(t_game *game);
+void	player_left(t_game *game);
+void	check_exit(t_game *game);
+void	check_win(t_game *game);
+//void	check_lost(t_game *game);
 #endif
