@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ale <ale@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 18:18:38 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/21 18:30:32 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/24 00:49:48 by ale              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,17 @@ void	check_exit(t_game *game)
 
 void	check_win(t_game *game)
 {
-	ft_printf("YOU WIN!!!\n");
-	exit(1);
+	int	x;
+	int	y;
+
+	if (game->collect_count == game->count_collect)
+	{
+		mlx_put_image_to_window(game->mlx, game->win, game->exit, game->e_x * 128, game->e_y * 128);
+		if (game->p_x == game->e_x && game->p_y == game->e_y)
+		{
+			ft_printf("\nYOU WIN!\n");
+			exit(1);
+			//close_win(game);
+		}
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ale <ale@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:28:17 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/21 17:57:17 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/24 00:35:55 by ale              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ void	draw_map(t_game *game)
 
 void	draw_map2(t_game *game, int y, int x)
 {
+	if (game->map[y][x] == 'E')
+		mlx_put_image_to_window(game->mlx, game->win, game->zero,
+			x * 128, y * 128);
 	if (game->map[y][x] == 'P')
 		mlx_put_image_to_window(game->mlx, game->win, game->player,
-			x * 128, y * 128);
-	if (game->map[y][x] == 'E')
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy,
 			x * 128, y * 128);
 	if (game->map[y][x] == 'C')
 		mlx_put_image_to_window(game->mlx, game->win, game->collect,

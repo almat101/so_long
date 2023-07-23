@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ale <ale@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 10:41:42 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/21 18:19:05 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/22 13:00:49 by ale              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,36 @@ void	init_struct(t_game *game)
 {
 	game->map_width = map_width(game);
 	game->map_height = map_height(game);
+	game->player_count = 0;
 	game->collect_count = 0;
 	game->count_collect = 0;
 	game->exit_count = 0;
 	game->img_pxl = 128;
+	game->p_x = 0;
+	game->p_y = 0;
+	game->e_x = 0;
+	game->e_y = 0;
+}
+
+void	get_exit(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < game->map_height)
+	{
+		x = 0;
+		while (x < game->map_width)
+		{
+			if(game->map[y][x] == 'E')
+				{
+					game->e_y = y;
+					game->e_x = x;
+					break;
+				}
+			x++;
+		}
+		y++;
+	}
 }

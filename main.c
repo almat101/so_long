@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ale <ale@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 16:33:22 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/21 17:32:55 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/24 00:53:42 by ale              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	main(int argc, char **argv)
 	read_map(argv[1],&game);
 	init_struct(&game);
 	check_map(&game);
-	//game.mlx = mlx_init();
 	render_map(&game);
 	mlx_key_hook(game.win , handle_key, &game);
 	mlx_hook(game.win, 17, 0L, close_win, &game);

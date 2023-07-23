@@ -20,6 +20,8 @@ typedef	struct	s_game {
 	int		img_pxl;
 	int		p_x;
 	int		p_y;
+	int		e_x;
+	int		e_y;
 	int		p_moves;
 	void	*mlx;
 	void	*win;
@@ -54,5 +56,6 @@ void	player_right(t_game *game);
 void	player_left(t_game *game);
 void	check_exit(t_game *game);
 void	check_win(t_game *game);
+void	get_exit(t_game *game);
 //void	check_lost(t_game *game);
 #endif
