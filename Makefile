@@ -6,7 +6,7 @@
 #    By: amatta <amatta@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 16:00:41 by amatta            #+#    #+#              #
-#    Updated: 2023/07/21 18:19:32 by amatta           ###   ########.fr        #
+#    Updated: 2023/07/24 13:30:58 by amatta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 #flags deleted for testing
 FLAGS =
 
-SRCS = main.c read_map.c utils.c check_map.c errors.c render_map.c handle_key.c moves.c check_game.c
+SRCS = main.c read_map.c utils.c check_map.c errors.c render_map.c handle_key.c player_moves.c enemy_moves.c check_game.c get_position.c
 
 LIBFT = ./libft/libft.a
 

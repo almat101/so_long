@@ -1,40 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.c                                            :+:      :+:    :+:   */
+/*   player_moves.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ale <ale@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 14:31:11 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/24 00:49:16 by ale              ###   ########.fr       */
+/*   Updated: 2023/07/24 18:12:34 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	get_player(t_game *game)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < game->map_height)
-	{
-		x = 0;
-		while (x < game->map_width)
-		{
-			if(game->map[y][x] == 'P')
-				{
-					game->p_y = y;
-					game->p_x = x;
-					break;
-				}
-			x++;
-		}
-		y++;
-	}
-	get_exit(game);
-}
 
 void	player_up(t_game *game)
 {
@@ -53,8 +29,10 @@ void	player_up(t_game *game)
 		game->map[new_y][game->p_x] = 'P';
 		game->p_moves++;
 		game->p_y = new_y;
+		enemy_right(game);
 		draw_map(game);
-		ft_printf("Moves n°%d\n",game->p_moves);
+		ft_printf("Moves n°%d\n", game->p_moves);
+		check_lose(game);
 		check_win(game);
 	}
 }
@@ -76,8 +54,10 @@ void	player_down(t_game *game)
 		game->map[new_y][game->p_x] = 'P';
 		game->p_moves++;
 		game->p_y = new_y;
+		enemy_left(game);
 		draw_map(game);
-		ft_printf("Moves n°%d\n",game->p_moves);
+		ft_printf("Moves n°%d\n", game->p_moves);
+		check_lose(game);
 		check_win(game);
 	}
 }
@@ -99,8 +79,10 @@ void	player_right(t_game *game)
 		game->map[game->p_y][new_x] = 'P';
 		game->p_moves++;
 		game->p_x = new_x;
+		//enemy_down(game);
 		draw_map(game);
-		ft_printf("Moves n°%d\n",game->p_moves);
+		ft_printf("Moves n°%d\n", game->p_moves);
+		check_lose(game);
 		check_win(game);
 	}
 }
@@ -122,9 +104,13 @@ void	player_left(t_game *game)
 		game->map[game->p_y][new_x] = 'P';
 		game->p_moves++;
 		game->p_x = new_x;
+		//enemy_up(game);
 		draw_map(game);
-		ft_printf("Moves n°%d\n",game->p_moves);
+		ft_printf("Moves n°%d\n", game->p_moves);
+		check_lose(game);
 		check_win(game);
 	}
 }
+
+
 

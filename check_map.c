@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ale <ale@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 17:28:56 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/22 12:24:46 by ale              ###   ########.fr       */
+/*   Updated: 2023/07/24 15:40:26 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	check_inner_map(t_game *game)
 {
 	int		i;
 	int		j;
-	char	current_cell;
 
 	i = 1;
 	while (i < game->map_height - 1)
@@ -44,16 +43,17 @@ void	check_inner_map(t_game *game)
 		j = 1;
 		while (j < game->map_width - 1)
 		{
-			current_cell = game->map[i][j];
-			if (current_cell != '0' && current_cell != '1'
-				&& current_cell != 'C' && current_cell != 'P'
-				&& current_cell != 'E')
+			if (game->map[i][j] != '0' && game->map[i][j] != '1'
+				&& game->map[i][j] != 'C' && game->map[i][j] != 'P'
+				&& game->map[i][j] != 'E' && game->map[i][j] != 'N' )
 				error("Invalid map cell.");
-			if (current_cell == 'C')
+			if (game->map[i][j] == 'C')
 				game->collect_count += 1;
-			if (current_cell == 'P')
+			if (game->map[i][j] == 'N')
+				game->enemy_count += 1;
+			if (game->map[i][j] == 'P')
 				game->player_count += 1;
-			if (current_cell == 'E')
+			if (game->map[i][j] == 'E')
 				game->exit_count += 1;
 			j++;
 		}
@@ -64,13 +64,15 @@ void	check_inner_map(t_game *game)
 void	check_items(t_game *game)
 {
 	if (game->player_count >= 2)
-		error("Only one player is accepted!");
+		error("this game can handle only one player!");
+	if (game->enemy_count >= 2)
+		error("this game can handle only one enemy!");
 	if (!game->player_count)
-		error("Missing Player!");
+		error("missing player!");
 	if (!game->collect_count)
-		error("Missing Collectible!");
+		error("missing collectible!");
 	if (!game->exit_count)
-		error("Missing exit!");
+		error("missing exit!");
 }
 
 void	check_map(t_game *game)

@@ -6,20 +6,20 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 12:32:04 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/21 17:17:54 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/24 12:31:00 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**read_map(char *argv,t_game *game)
+char	**read_map(char *argv, t_game *game)
 {
 	int		fd;
 	int		r;
 	char	*str;
 
 	fd = open(argv, 0);
-	str = malloc(sizeof (char) * 9999 );
+	str = malloc(sizeof(char) * 9999);
 	r = read(fd, str, 9999);
 	if (r == -1)
 		error("read error!");
@@ -28,6 +28,3 @@ char	**read_map(char *argv,t_game *game)
 	free(str);
 	return (game->map);
 }
-
-
-
