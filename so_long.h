@@ -6,7 +6,7 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:31:40 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/25 13:18:50 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/25 16:04:02 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ typedef struct s_game {
 	int		n_x;
 	int		n_y;
 	int		p_moves;
+	int		p_direction;
 	void	*mlx;
 	void	*win;
 	char	**map;
-	void	*player;
+	void	*player_left;
+	void	*player_right;
 	void	*collect;
 	void	*enemy;
 	void	*exit;
@@ -72,6 +74,7 @@ void	player_left(t_game *game);
 void	check_exit(t_game *game);
 void	check_win(t_game *game);
 void	get_exit(t_game *game);
+void	put_exit(t_game *game);
 void	check_lose(t_game *game);
 void	enemy_right(t_game *game);
 void	enemy_left(t_game *game);

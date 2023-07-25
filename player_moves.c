@@ -6,7 +6,7 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 14:31:11 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/25 12:44:32 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/25 15:28:43 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	player_right(t_game *game)
 {
 	int	new_x;
 
+	game->p_direction = 1;
 	get_player(game);
 	new_x = game->p_x + 1;
 	if (game->map[game->p_y][new_x] != '1')
@@ -97,6 +98,7 @@ void	player_left(t_game *game)
 {
 	int	new_x;
 
+	game->p_direction = 0;
 	get_player(game);
 	new_x = game->p_x - 1;
 	if (game->map[game->p_y][new_x] != '1')

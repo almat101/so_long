@@ -6,7 +6,7 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 18:18:38 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/25 12:40:06 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/25 15:01:48 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void	check_lose(t_game *game)
 void	instant_lose(t_game *game)
 {
 	(void) game;
-	ft_printf("\nINSTANT LOSE!\n");
+	ft_printf("\nYOU LOSE!\n");
 	exit(1);
 }
