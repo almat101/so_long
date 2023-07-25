@@ -6,7 +6,7 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:28:17 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/24 17:15:55 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/25 12:57:44 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,4 @@ void	draw_map2(t_game *game, int y, int x)
 		mlx_put_image_to_window(game->mlx, game->win, game->exit,
 			game->e_x * 64, game->e_y * 64);
 	print_move(game);
-}
-
-void	print_move(t_game *game)
-{
-	char	*moves;
-
-	moves = ft_itoa(game->p_moves);
-	mlx_string_put(game->mlx, game->win, 32, 32, 0xa832a2 , "MOVES:");
-	mlx_string_put(game->mlx, game->win, 80, 32, 0xa832a2 , moves );
 }

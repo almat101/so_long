@@ -6,7 +6,7 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:31:40 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/24 16:59:56 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/25 13:18:50 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,5 @@ void	enemy_left(t_game *game);
 void	enemy_up(t_game *game);
 void	enemy_down(t_game *game);
 void	print_move(t_game *game);
+void	instant_lose(t_game *game);
 #endif

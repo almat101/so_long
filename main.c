@@ -6,20 +6,16 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 16:33:22 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/24 12:28:39 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/25 12:37:10 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_linux/mlx.h"
-#include <stdlib.h>
 #include "so_long.h"
 
 int	main(int argc, char **argv)
 {
 	t_game	game;
-	int		i;
 
-	i = 0;
 	if (argc != 2)
 		error("please load a map!");
 	read_map(argv[1], &game);
