@@ -6,7 +6,7 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 14:57:43 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/25 15:08:33 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/31 13:06:45 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	init_struct(t_game *game)
 	game->e_y = 0;
 	game->n_y = 0;
 	game->n_x = 0;
+	game->frame = -1;
 	game->p_direction = 1;
 }
 

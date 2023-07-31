@@ -6,7 +6,7 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:31:40 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/25 16:04:02 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/31 13:33:12 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_game {
 	int		n_y;
 	int		p_moves;
 	int		p_direction;
+	int		frame;
 	void	*mlx;
 	void	*win;
 	char	**map;
@@ -45,7 +46,9 @@ typedef struct s_game {
 	void	*player_right;
 	void	*collect;
 	void	*enemy;
-	void	*exit;
+	void	*exit1;
+	void	*exit2;
+	void	*exit3;
 	void	*zero;
 	void	*one;
 }				t_game;
@@ -82,4 +85,5 @@ void	enemy_up(t_game *game);
 void	enemy_down(t_game *game);
 void	print_move(t_game *game);
 void	instant_lose(t_game *game);
+int		put_exit_animation(t_game *game);
 #endif

@@ -6,7 +6,7 @@
 #    By: amatta <amatta@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 14:57:13 by amatta            #+#    #+#              #
-#    Updated: 2023/07/25 14:57:14 by amatta           ###   ########.fr        #
+#    Updated: 2023/07/31 13:39:32 by amatta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-SRCS = main.c read_map.c utils.c check_map.c errors.c render_map.c handle_key.c player_moves.c enemy_moves.c check_game.c get_position.c
+SRCS = main.c read_map.c utils.c check_map.c errors.c render_map.c handle_key.c player_moves.c enemy_moves.c check_game.c get_position.c exit_animation.c
 
 LIBFT = ./libft/libft.a
 

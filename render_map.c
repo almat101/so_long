@@ -6,7 +6,7 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 13:28:17 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/25 16:03:43 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/31 13:38:25 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@ void	render_map(t_game *game)
 			&game->img_pxl, &game->img_pxl);
 	game->enemy = mlx_xpm_file_to_image(game->mlx, "./img/enemy.xpm",
 			&game->img_pxl, &game->img_pxl);
-	game->exit = mlx_xpm_file_to_image(game->mlx, "./img/exit.xpm",
+	game->exit1 = mlx_xpm_file_to_image(game->mlx, "./img/exit1.xpm",
+			&game->img_pxl, &game->img_pxl);
+	game->exit2 = mlx_xpm_file_to_image(game->mlx, "./img/exit2.xpm",
+			&game->img_pxl, &game->img_pxl);
+	game->exit3 = mlx_xpm_file_to_image(game->mlx, "./img/exit3.xpm",
 			&game->img_pxl, &game->img_pxl);
 	game->zero = mlx_xpm_file_to_image(game->mlx, "./img/zero.xpm",
 			&game->img_pxl, &game->img_pxl);
@@ -78,13 +82,5 @@ void	draw_map2(t_game *game, int y, int x)
 	if (game->map[y][x] == 'N')
 		mlx_put_image_to_window(game->mlx, game->win, game->enemy,
 			x * 64, y * 64);
-	put_exit(game);
 	print_move(game);
-}
-
-void	put_exit(t_game *game)
-{
-	if (game->collect_count == game->count_collect)
-		mlx_put_image_to_window(game->mlx, game->win, game->exit,
-			game->e_x * 64, game->e_y * 64);
 }
