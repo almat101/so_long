@@ -6,7 +6,7 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 12:32:04 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/24 12:31:00 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/31 15:34:54 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	**read_map(char *argv, t_game *game)
 	char	*str;
 
 	fd = open(argv, 0);
-	str = malloc(sizeof(char) * 9999);
+	str = ft_calloc(sizeof(char), 9999);
 	r = read(fd, str, 9999);
 	if (r == -1)
 		error("read error!");

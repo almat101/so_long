@@ -6,7 +6,7 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 12:31:40 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/31 13:33:12 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/31 15:13:19 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	check_walls(t_game *game);
 void	check_items(t_game *game);
 void	chek_inner_map(t_game *game);
 void	init_struct(t_game *game);
+void	init_struct2(t_game *game);
 int		map_height(t_game *game);
 int		map_width(t_game *game);
 char	*error(char *msg);
@@ -86,4 +87,5 @@ void	enemy_down(t_game *game);
 void	print_move(t_game *game);
 void	instant_lose(t_game *game);
 int		put_exit_animation(t_game *game);
+void	free_img(t_game *game);
 #endif

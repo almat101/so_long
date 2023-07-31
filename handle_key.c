@@ -6,19 +6,11 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 15:31:56 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/25 12:44:11 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/31 15:58:29 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	close_win(t_game *game)
-{
-	mlx_destroy_window(game->mlx, game->win);
-	ft_free_map(game);
-	free(game->mlx);
-	exit(1);
-}
 
 int	handle_key(int keycode, t_game *game)
 {

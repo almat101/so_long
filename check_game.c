@@ -6,7 +6,7 @@
 /*   By: amatta <amatta@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 18:18:38 by amatta            #+#    #+#             */
-/*   Updated: 2023/07/25 15:01:48 by amatta           ###   ########.fr       */
+/*   Updated: 2023/07/31 15:39:47 by amatta           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	check_win(t_game *game)
 		if (game->p_x == game->e_x && game->p_y == game->e_y)
 		{
 			ft_printf("\nYOU WIN!\n");
-			exit(1);
+			close_win(game);
 		}
 	}
 }
@@ -29,7 +29,7 @@ void	check_lose(t_game *game)
 	if (game->p_x == game->n_x && game->p_y == game->n_y)
 	{
 		ft_printf("\nYOU LOSE!\n");
-		exit(1);
+		close_win(game);
 	}
 }
 
@@ -37,5 +37,5 @@ void	instant_lose(t_game *game)
 {
 	(void) game;
 	ft_printf("\nYOU LOSE!\n");
-	exit(1);
+	close_win(game);
 }
