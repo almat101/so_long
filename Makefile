@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amatta <amatta@student.42.fr>              +#+  +:+       +#+         #
+#    By: amatta <amatta@student.42roma.it>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/25 14:57:13 by amatta            #+#    #+#              #
-#    Updated: 2023/07/31 15:08:30 by amatta           ###   ########.fr        #
+#    Updated: 2024/01/09 11:54:43 by amatta           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,10 @@ $(MINI) : mlx_linux/
 
 $(LIBFT) : libft/
 		make -C libft
-		make clean -C libft
 
 $(FT_PRINTF) : ft_printf/
 		make -C ft_printf
-		make clean -C ft_printf
+
 
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) $(LIBFT) $(FT_PRINTF) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
