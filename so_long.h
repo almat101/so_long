@@ -65,7 +65,7 @@ void	init_struct(t_game *game);
 void	init_struct2(t_game *game);
 int		map_height(t_game *game);
 int		map_width(t_game *game);
-char	*error(char *msg);
+char	*error(char *msg, t_game *game, int flag);
 void	ft_free_map(t_game *game);
 int		handle_key(int keycode, t_game *game);
 int		close_win(t_game *game);

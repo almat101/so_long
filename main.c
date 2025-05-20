@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	if (argc != 2)
-		error("please load a map!");
+		error("please load a map!", &game, 0);
 	read_map(argv[1], &game);
 	init_struct(&game);
 	check_map(&game);
@@ -26,5 +26,4 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(game.mlx, put_exit_animation, &game);
 	mlx_hook(game.win, 17, 0L, close_win, &game);
 	mlx_loop(game.mlx);
-	free(game.mlx);
 }

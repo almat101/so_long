@@ -22,7 +22,7 @@ char	**read_map(char *argv, t_game *game)
 	str = ft_calloc(sizeof(char), 9999);
 	r = read(fd, str, 9999);
 	if (r == -1)
-		error("read error!");
+		error("read error!",game, 0);
 	game->map = ft_split(str, 10);
 	close(fd);
 	free(str);

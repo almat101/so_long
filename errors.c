@@ -12,9 +12,11 @@
 
 #include "so_long.h"
 
-char	*error(char *msg)
+char	*error(char *msg, t_game *game, int flag)
 {
 	ft_printf("Error, \n");
 	ft_printf("%s\n", msg);
+	if (flag)
+		ft_free_map(game);
 	exit(1);
 }
