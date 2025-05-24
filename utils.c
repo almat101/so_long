@@ -41,11 +41,10 @@ void	init_struct(t_game *game)
 	game->p_y = 0;
 	game->e_x = 0;
 	game->e_y = 0;
-	game->n_x = 0;
-	game->n_y = 0;
 	game->p_moves = 0;
 	game->p_direction = 1;
 	game->frame = -1;
+	game->cords = NULL;
 	init_struct2(game);
 }
 

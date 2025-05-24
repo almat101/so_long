@@ -14,6 +14,7 @@
 
 int	close_win(t_game *game)
 {
+	free(game->cords);
 	mlx_destroy_window(game->mlx, game->win);
 	free_img(game);
 	mlx_destroy_display(game->mlx);
@@ -24,15 +25,24 @@ int	close_win(t_game *game)
 
 void	free_img(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->player_left);
-	mlx_destroy_image(game->mlx, game->player_right);
-	mlx_destroy_image(game->mlx, game->collect);
-	mlx_destroy_image(game->mlx, game->enemy);
-	mlx_destroy_image(game->mlx, game->exit1);
-	mlx_destroy_image(game->mlx, game->exit2);
-	mlx_destroy_image(game->mlx, game->exit3);
-	mlx_destroy_image(game->mlx, game->zero);
-	mlx_destroy_image(game->mlx, game->one);
+	if (game->player_left)
+		mlx_destroy_image(game->mlx, game->player_left);
+	if (game->player_right)
+		mlx_destroy_image(game->mlx, game->player_right);
+	if (game->collect)
+		mlx_destroy_image(game->mlx, game->collect);
+	if (game->enemy)
+		mlx_destroy_image(game->mlx, game->enemy);
+	if (game->exit1)
+		mlx_destroy_image(game->mlx, game->exit1);
+	if (game->exit2)
+		mlx_destroy_image(game->mlx, game->exit2);
+	if (game->exit3)
+		mlx_destroy_image(game->mlx, game->exit3);
+	if (game->zero)
+		mlx_destroy_image(game->mlx, game->zero);
+	if (game->one)
+		mlx_destroy_image(game->mlx, game->one);
 }
 
 void	ft_free_map(t_game *game)

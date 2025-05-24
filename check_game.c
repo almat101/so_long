@@ -24,18 +24,9 @@ void	check_win(t_game *game)
 	}
 }
 
-void	check_lose(t_game *game)
-{
-	if (game->p_x == game->n_x && game->p_y == game->n_y)
-	{
-		ft_printf("\nYOU LOSE!\n");
-		close_win(game);
-	}
-}
 
 void	instant_lose(t_game *game)
 {
-	(void) game;
 	ft_printf("\nYOU LOSE!\n");
 	close_win(game);
 }

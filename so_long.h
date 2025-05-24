@@ -20,6 +20,13 @@
 # include "mlx_linux/mlx.h"
 # include <unistd.h>
 # include <fcntl.h>
+# include <time.h>
+
+typedef struct {
+    int y;
+    int x;
+} t_enemy_coords;
+
 
 typedef struct s_game {
 	int		map_width;
@@ -34,8 +41,9 @@ typedef struct s_game {
 	int		p_y;
 	int		e_x;
 	int		e_y;
-	int		n_x;
-	int		n_y;
+	// int		n_x;
+	// int		n_y;
+	t_enemy_coords *cords;
 	int		p_moves;
 	int		p_direction;
 	int		frame;
@@ -53,39 +61,42 @@ typedef struct s_game {
 	void	*one;
 }				t_game;
 
+void	check_inner_map(t_game *game);
 char	**read_map(char *argv, t_game *game);
-void	render_map(t_game *game);
+void	render_map_1(t_game *game);
+void	render_map_2(t_game *game);
 void	draw_map(t_game *game);
 void	draw_map2(t_game *game, int y, int x);
 void	check_map(t_game *game);
 void	check_walls(t_game *game);
 void	check_items(t_game *game);
-void	chek_inner_map(t_game *game);
 void	init_struct(t_game *game);
 void	init_struct2(t_game *game);
 int		map_height(t_game *game);
 int		map_width(t_game *game);
-char	*error(char *msg, t_game *game, int flag);
 void	ft_free_map(t_game *game);
 int		handle_key(int keycode, t_game *game);
 int		close_win(t_game *game);
 void	get_player(t_game *game);
-void	get_enemy(t_game *game);
-void	player_up(t_game *game);
-void	player_down(t_game *game);
-void	player_right(t_game *game);
-void	player_left(t_game *game);
-void	check_exit(t_game *game);
+void	player_up_down(t_game *game, int dir);
+void	player_right_left(t_game *game, int dir);
 void	check_win(t_game *game);
 void	get_exit(t_game *game);
-void	put_exit(t_game *game);
-void	check_lose(t_game *game);
-void	enemy_right(t_game *game);
-void	enemy_left(t_game *game);
-void	enemy_up(t_game *game);
-void	enemy_down(t_game *game);
+
 void	print_move(t_game *game);
 void	instant_lose(t_game *game);
 int		put_exit_animation(t_game *game);
 void	free_img(t_game *game);
+void	is_dot_ber(char *argv);
+void	ft_error(char *msg, char *str);
+void	error(char *msg, t_game *game, int flag);
+void	ft_error_mlx(char *msg, t_game *game);
+void	mlx_init_game(t_game *game);
+void	init_enemy_cords(t_game *game);
+void	fill_enemy(t_game *game);
+void	select_enemy(t_game *game);
+void	enemy_move_u_d(t_game *game, int idx, int y, int x, int dir);
+void	enemy_move_r_l(t_game *game, int idx, int y, int x, int dir);
+
+
 #endif

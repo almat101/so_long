@@ -34,7 +34,6 @@ void	get_player(t_game *game)
 		y++;
 	}
 	get_exit(game);
-	get_enemy(game);
 }
 
 void	get_exit(t_game *game)
@@ -52,29 +51,6 @@ void	get_exit(t_game *game)
 			{
 				game->e_y = y;
 				game->e_x = x;
-				break ;
-			}
-			x++;
-		}
-		y++;
-	}
-}
-
-void	get_enemy(t_game *game)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < game->map_height)
-	{
-		x = 0;
-		while (x < game->map_width)
-		{
-			if (game->map[y][x] == 'N')
-			{
-				game->n_y = y;
-				game->n_x = x;
 				break ;
 			}
 			x++;

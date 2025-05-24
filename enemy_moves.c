@@ -12,94 +12,38 @@
 
 #include "so_long.h"
 
-void	enemy_up(t_game *game)
+void	enemy_move_u_d(t_game *game, int idx, int y, int x, int dir)
 {
 	int	new_y;
-
-	if (game->enemy_count)
+	
+	new_y = y + dir;
+	if (game->map[new_y][x] != '1'
+		&& game->map[new_y][x] != 'C'
+		&& game->map[new_y][x] != 'E'
+		&& game->map[new_y][x] != 'N')
 	{
-		get_enemy(game);
-		new_y = game->n_y - 1;
-		if (game->map[new_y][game->n_x] != '1'
-			&& game->map[new_y][game->n_x] != 'C'
-			&& game->map[new_y][game->n_x] != 'E')
-		{
-			game->map[game->n_y][game->n_x] = '0';
-			if (game->map[game->n_y][game->n_x] == 'P')
-				instant_lose(game);
-			if (game->map[new_y][game->n_x] == 'P')
-				instant_lose(game);
-			game->map[new_y][game->n_x] = 'N';
-			game->n_y = new_y;
-		}
+		if (game->map[new_y][x] == 'P')
+			instant_lose(game);
+		game->map[y][x] = '0';
+		game->map[new_y][x] = 'N';
+		game->cords[idx].y = new_y;
 	}
 }
 
-void	enemy_down(t_game *game)
-{
-	int	new_y;
-
-	if (game->enemy_count)
-	{
-		get_enemy(game);
-		new_y = game->n_y + 1;
-		if (game->map[new_y][game->n_x] != '1'
-		&& game->map[new_y][game->n_x] != 'C'
-		&& game->map[new_y][game->n_x] != 'E')
-		{
-			game->map[game->n_y][game->n_x] = '0';
-			if (game->map[game->n_y][game->n_x] == 'P')
-				instant_lose(game);
-			if (game->map[new_y][game->n_x] == 'P')
-				instant_lose(game);
-			game->map[new_y][game->n_x] = 'N';
-			game->n_y = new_y;
-		}
-	}
-}
-
-void	enemy_right(t_game *game)
+void	enemy_move_r_l(t_game *game, int idx, int y, int x, int dir)
 {
 	int	new_x;
 
-	if (game->enemy_count)
+	new_x = x + dir;
+	if (game->map[y][new_x] != '1'
+		&& game->map[y][new_x] != 'C'
+		&& game->map[y][new_x] != 'E'
+		&& game->map[y][new_x] != 'N')
 	{
-		get_enemy(game);
-		new_x = game->n_x + 1;
-		if (game->map[game->n_y][new_x] != '1'
-		&& game->map[game->n_y][new_x] != 'C'
-		&& game->map[game->n_y][new_x] != 'E')
-		{
-			game->map[game->n_y][game->n_x] = '0';
-			if (game->map[game->n_y][game->n_x] == 'P')
-				instant_lose(game);
-			if (game->map[game->n_y][new_x] == 'P')
-				instant_lose(game);
-			game->map[game->n_y][new_x] = 'N';
-			game->n_x = new_x;
-		}
-	}
-}
-
-void	enemy_left(t_game *game)
-{
-	int	new_x;
-
-	if (game->enemy_count)
-	{
-		get_enemy(game);
-		new_x = game->n_x - 1;
-		if (game->map[game->n_y][new_x] != '1'
-		&& game->map[game->n_y][new_x] != 'C'
-		&& game->map[game->n_y][new_x] != 'E')
-		{
-			game->map[game->n_y][game->n_x] = '0';
-			if (game->map[game->n_y][game->n_x] == 'P')
-				instant_lose(game);
-			if (game->map[game->n_y][new_x] == 'P')
-				instant_lose(game);
-			game->map[game->n_y][new_x] = 'N';
-			game->n_x = new_x;
-		}
+		if (game->map[y][new_x] == 'P')
+			instant_lose(game);
+		game->map[y][x] = '0';
+		game->map[y][new_x] = 'N';
+		game->cords[idx].x = new_x;
 	}
 }
