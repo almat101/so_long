@@ -82,7 +82,6 @@ void	player_up_down(t_game *game, int dir);
 void	player_right_left(t_game *game, int dir);
 void	check_win(t_game *game);
 void	get_exit(t_game *game);
-
 void	print_move(t_game *game);
 void	instant_lose(t_game *game);
 int		put_exit_animation(t_game *game);
@@ -97,6 +96,11 @@ void	fill_enemy(t_game *game);
 void	select_enemy(t_game *game);
 void	enemy_move_u_d(t_game *game, int idx, int y, int x, int dir);
 void	enemy_move_r_l(t_game *game, int idx, int y, int x, int dir);
-
+void	flood_fill(t_game *game);
+char 	**create_dup_map(t_game *game);
+void	print_map(char **map);
+void 	flood_fill_recursive(t_game *game, char **map, int y, int x);
+int		check_unreachable_item(t_game *game, char **map);
+void	free_map(char **map);
 
 #endif

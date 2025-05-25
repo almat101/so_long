@@ -57,3 +57,28 @@ void	ft_free_map(t_game *game)
 	}
 	free(game->map);
 }
+
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
+
+void	print_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		ft_printf("%s\n", map[i]);
+		i++;
+	}
+}

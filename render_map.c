@@ -97,7 +97,7 @@ void	draw_map2(t_game *game, int y, int x)
 		if (game->p_direction == 1)
 			mlx_put_image_to_window(game->mlx, game->win, game->player_right,
 				x * 64, y * 64);
-		if (game->p_direction == 0)
+		if (game->p_direction == -1)
 			mlx_put_image_to_window(game->mlx, game->win, game->player_left,
 				x * 64, y * 64);
 	}

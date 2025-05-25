@@ -16,7 +16,7 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-SRCS = main.c read_map.c utils.c check_map.c errors.c render_map.c handle_key.c player_moves.c enemy_moves.c check_game.c get_position.c exit_animation.c free_memory.c
+SRCS = main.c read_map.c utils.c check_map.c errors.c render_map.c handle_key.c player_moves.c enemy_moves.c check_game.c get_position.c exit_animation.c free_memory.c init.c flood_fill.c
 
 LIBFT = ./libft/libft.a
 

@@ -25,15 +25,14 @@ void	player_up_down(t_game *game, int dir)
 			game->map[new_y][game->p_x] = '0';
 			game->count_collect++;
 		}
-		game->map[game->p_y][game->p_x] = '0';
 		if (game->map[new_y][game->p_x] == 'N')
 			instant_lose(game);
+		game->map[game->p_y][game->p_x] = '0';
 		game->map[new_y][game->p_x] = 'P';
 		game->p_y = new_y;
 		game->p_moves++;
 		draw_map(game);
 		ft_printf("Moves n°%d\n", game->p_moves);
-		// check_lose(game);
 		check_win(game);
 	}
 }
@@ -51,15 +50,18 @@ void	player_right_left(t_game *game, int dir)
 			game->map[game->p_y][new_x] = '0';
 			game->count_collect++;
 		}
-		game->map[game->p_y][game->p_x] = '0';
 		if (game->map[game->p_y][new_x] == 'N')
 			instant_lose(game);
+		game->map[game->p_y][game->p_x] = '0';
 		game->map[game->p_y][new_x] = 'P';
 		game->p_moves++;
 		game->p_x = new_x;
+		if(dir == 1)
+			game->p_direction = 1;
+		else
+			game->p_direction = -1;
 		draw_map(game);
 		ft_printf("Moves n°%d\n", game->p_moves);
-		// check_lose(game);
 		check_win(game);
 	}
 }

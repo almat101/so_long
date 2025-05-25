@@ -80,54 +80,10 @@ void	check_map(t_game *game)
 	check_walls(game);
 	check_inner_map(game);
 	check_items(game);
+	get_player(game);
+	flood_fill(game);
 	init_enemy_cords(game);
 	fill_enemy(game);
-	// select_enemy(game);
 }
 
 
-void init_enemy_cords(t_game *game)
-{
-	game->cords = malloc(sizeof(t_enemy_coords) * game->enemy_count);
-	if (!game->cords)
-    	ft_error("Malloc of enemy cords failed", NULL);
-}
-
-void fill_enemy(t_game *game)
-{
-	int idx;
-	
-	idx = 0;
-	int y = 0;
-	while (y < game->map_height) {
-		int x = 0;
-		while (x < game->map_width) {
-			if (game->map[y][x] == 'N') {
-				game->cords[idx].y = y;
-				game->cords[idx].x = x;
-				idx++;
-			}
-			x++;
-		}
-		y++;
-	}
-}
-
-void select_enemy(t_game *game)
-{
-	int		idx;
-	int		dir;
-
-	dir	= rand() % 4;
-	if(game->enemy_count > 0) {
-		idx = rand() % game->enemy_count;
-		if (dir == 0)
-			enemy_move_u_d(game, idx, game->cords[idx].y, game->cords[idx].x, 1);
-		else if (dir == 1)
-			enemy_move_u_d(game, idx,  game->cords[idx].y, game->cords[idx].x, -1);
-		else if (dir == 2)
-			enemy_move_r_l(game, idx, game->cords[idx].y, game->cords[idx].x, 1);
-		else
-			enemy_move_r_l(game, idx,  game->cords[idx].y, game->cords[idx].x, -1);
-	}
-}
